@@ -1,0 +1,45 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\geometry{letterpaper}
+\usepackage{graphicx}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage{fontspec,xltxtra,xunicode}
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont[Mapping=tex-text]{Charis SIL}
+\usepackage[parfill]{parskip}
+\usepackage{url}
+\usepackage{setspace}
+\setstretch{1.1}
+%\doublespacing
+\usepackage{color}
+\usepackage{titlesec}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{pdflscape}
+\usepackage{ntheorem}
+\usepackage{longtable}
+\usepackage{listings}
+
+\lstset{%
+  language=perl,
+  backgroundcolor=\color{white},
+  basicstyle=\ttfamily,
+  breaklines=true,
+  columns=fullflexible
+}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+\title{\textbf{Using Praat for Linguistic Research}}
+\author{\textbf{Dr. Will Styler}}
+\date{}                                           % Activate to display a given date or no date
+
+
+\begin{document}
+
