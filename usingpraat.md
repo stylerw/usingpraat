@@ -1,11 +1,11 @@
 
-\rhead{\color{gray}Using Praat for Linguistic Research - Version 1.9\color{black}}
+\rhead{\color{gray}Using Praat for Linguistic Research - Version 1.9.1\color{black}}
  
 \maketitle
 
 \begin{center}
 \vspace{0.5in}
-\textbf{\small Document Version}: 1.9
+\textbf{\small Document Version}: 1.9.1
 
 \textbf{Last Update}: \today
 
@@ -37,6 +37,8 @@ Using Praat for Linguistic Research by Will Styler is licensed under a Creative 
 
 
 # Version History
+
+* 1.9.1 – March 19th, 2022 - Added a few notes to Source Filter Resynthesis section.
 
 * 1.9 - March 4th, 2022 - Moved to open contribution model on GitHub, squished some bugs, fixed and separated the bibliography, paid down some technical debt.
 
@@ -1163,6 +1165,16 @@ Given some work, though, and some time, this can be an excellent way to modify v
 \includegraphics[width=0.7in]{hal.png} \newline \textbf{Script Tip!} & \raisebox{5mm}{\parbox{12cm}{\textit{Resynthesis works best with downsampled sounds, and introduces some artifacts.  You will almost certaintly want to modify only the bottom 3500 Hz of the vowel, and then re-combine it with the unmodified higher frequencies, so that you change what you need to, but keep the rest pristine. }}}\ \
 \end{tabular}
 \vspace{0.5cm}
+
+### Tips for Source-Filter Vowel Resynthesis
+
+1) **The best SFVR is none at all!**  If you can find or make tokens in other ways, they're often better, and recording a variety of tokens and cherry picking ones with the formant values expected may be more productive for many designs.  This is, in many ways, a technique of last resort.
+
+2) **Use many small steps.**  You'll generally get better results from 5 50Hz steps than one 250Hz step.  It's counterintuitive as you'd think processing errors would stack, but for whatever reason, it's been the case that you want to move slowly, at least last time I spent much time with this.
+
+3) **Downsampling is key.** Use the instructions above for downsampling and your life will be better.
+
+4) **If the F0 track is bad, the token is too**.  To deconvolve source and filter, you'll need a strong F0 track. Strange results might be because Praat's struggling to isolate F0, or worse still, struggling to accurately track it.  You might be able to adjust F0 settings some to get closer, but you'll want nice modal tokens with clean-ish pitch tracks as input.
 
 
 # Exporting images for use and publication
