@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/CVE-2023-32700 patched)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: usingpraat.aux
+The style file: apalike.bst
+Database file #1: bibtex.bib
+"{" immediately follows a field name---line 84 of file bibtex.bib
+ : @unpublished
+ :             {Styler:2015aa,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "Styler:2015aa"
+Warning--I didn't find a database entry for "Johnson:1997aa"
+You've used 5 entries,
+            1935 wiz_defined-function locations,
+            512 strings with 4503 characters,
+and the built_in function-call counts, 1983 in all, are:
+= -- 203
+> -- 52
+< -- 4
++ -- 20
+- -- 16
+* -- 175
+:= -- 339
+add.period$ -- 15
+call.type$ -- 5
+change.case$ -- 33
+chr.to.int$ -- 5
+cite$ -- 5
+duplicate$ -- 70
+empty$ -- 155
+format.name$ -- 23
+if$ -- 383
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 5
+newline$ -- 28
+num.names$ -- 15
+pop$ -- 19
+preamble$ -- 1
+purify$ -- 33
+quote$ -- 0
+skip$ -- 55
+stack$ -- 0
+substring$ -- 201
+swap$ -- 5
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 30
+warning$ -- 0
+while$ -- 20
+width$ -- 0
+write$ -- 67
+(There was 1 error message)

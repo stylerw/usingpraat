@@ -30,14 +30,14 @@ perl -pi -w -e 's/-\textgreater{}/\$\to\$/g;' pandocked.tex
 cat header.tex pandocked.tex footer.tex > usingpraat.tex
 
 # Build the TeX once without stopping for errors (as the hyperref plugin throws errors on the first run)
-/Library/TeX/texbin/xelatex -output-driver="/Library/TeX/texbin/xdvipdfmx" -interaction=nonstopmode -synctex=1 usingpraat
+xelatex -output-driver="xdvipdfmx" -interaction=nonstopmode -synctex=1 usingpraat
 
 # Render the bibliography based on the prior file
-/Library/TeX/texbin/bibtex usingpraat
+bibtex usingpraat
 
 # Render the file twice more, to ensure that the bibliographical references are included and that the TOC reflects everything accurately
-/Library/TeX/texbin/xelatex -output-driver="/Library/TeX/texbin/xdvipdfmx" -synctex=1 usingpraat
-/Library/TeX/texbin/xelatex -output-driver="/Library/TeX/texbin/xdvipdfmx" -synctex=1 usingpraat
+xelatex -output-driver="xdvipdfmx" -synctex=1 usingpraat
+xelatex -output-driver="xdvipdfmx" -synctex=1 usingpraat
 
 # Open the PDF generated 
 open usingpraat.pdf

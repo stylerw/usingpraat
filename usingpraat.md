@@ -1,11 +1,11 @@
 
-\rhead{\color{gray}Using Praat for Linguistic Research - Version 1.9.1\color{black}}
+\rhead{\color{gray}Using Praat for Linguistic Research - Version 1.9.1.1\color{black}}
  
 \maketitle
 
 \begin{center}
 \vspace{0.5in}
-\textbf{\small Document Version}: 1.9.1
+\textbf{\small Document Version}: 1.9.1.1
 
 \textbf{Last Update}: \today
 
@@ -37,6 +37,8 @@ Using Praat for Linguistic Research by Will Styler is licensed under a Creative 
 
 
 # Version History
+
+* 1.9.1.1 - October 26th, 2023 - Fixed some errant markup (thanks to Kevin McGowan for the report!) and revised the build script to be more linux-friendly
 
 * 1.9.1 – March 19th, 2022 - Added a few notes to Source Filter Resynthesis section.
 
@@ -224,8 +226,9 @@ Playing back files is generally straightforward, using either...
 
 \vspace{0.5cm}
 \begin{tabular}[h]{ p{0.6in} p{12cm}}
-\includegraphics[width=0.5in]{danger.png} \newline\textbf{Danger!} & \raisebox{2mm}{\parbox{13cm}{\textit{On recent Apple Hardware, as well as on systems where the speakers are 'turned off' until a signal is sent, you may find the first part of the sound is cut off.  To fix this, use Praat -> Preferences -> Sound Playing Preferences and adjust the value of 'Silence before'.}}}\ \
+\includegraphics[width=0.5in]{danger.png} \newline\textbf{Danger!} & \raisebox{2mm}{\parbox{13cm}{\textit{On recent Apple Hardware, as well as on systems where the speakers are 'turned off' until a signal is sent, you may find the first part of the sound is cut off.  To fix this, use Praat -> Preferences -> Sound Playing Preferences and adjust the value of 'Silence before'.}}}
 \end{tabular}
+
 \vspace{0.5cm}
 
 ## Saving Files
@@ -413,7 +416,7 @@ Then adjust the settings as follows:
  
 \vspace{0.5cm}
 \begin{tabular}[h]{ p{0.6in} p{12cm}}
-\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{2mm}{\parbox{13cm}{\textit{Praat’s pitch tracking is a good way to get a rough idea of what’s going on with the speaker’s $F_{0}$, but relying on it to give you sane measures is not wise, especially in scripts.  Make sure you sanity-check any measures which seem unreasonable against single-cycle $F_{0}$ measurements or against harmonic frequencies, and that you throw out anything completely ridiculous.}}}\ \
+\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{2mm}{\parbox{13cm}{\textit{Praat’s pitch tracking is a good way to get a rough idea of what’s going on with the speaker’s $F_{0}$, but relying on it to give you sane measures is not wise, especially in scripts.  Make sure you sanity-check any measures which seem unreasonable against single-cycle $F_{0}$ measurements or against harmonic frequencies, and that you throw out anything completely ridiculous.}}}
 \end{tabular}
 \vspace{0.5cm}
 
@@ -425,7 +428,7 @@ When scripting, you may want to create a Pitch object (select the sound, then *O
 
 \vspace{0.5cm}
 \begin{tabular}[c c]{ p{0.7in} p{12cm}}
-\includegraphics[width=0.7in]{hal.png} \newline \textbf{Script Tip!} & \raisebox{5mm}{\parbox{12cm}{\textit{Build in sanity-checks for pitch!  Specify the highest and lowest reasonable pitches at the start of the script, use them in the creation of pitch objects and elsewhere, and specify that any values out of this range are wrong, and should be measured again. 10 or 600 Hz F0 measurements won't be a problem anymore! }}}\ \
+\includegraphics[width=0.7in]{hal.png} \newline \textbf{Script Tip!} & \raisebox{5mm}{\parbox{12cm}{\textit{Build in sanity-checks for pitch!  Specify the highest and lowest reasonable pitches at the start of the script, use them in the creation of pitch objects and elsewhere, and specify that any values out of this range are wrong, and should be measured again. 10 or 600 Hz F0 measurements won't be a problem anymore! }}}
 \end{tabular}
 \vspace{0.5cm}
 
@@ -500,7 +503,7 @@ These settings persist even once you've closed Praat, so if you make adjustments
 
 \vspace{0.5cm}
 \begin{tabular}[h]{ p{0.6in} p{12cm}}
-\includegraphics[width=0.5in]{danger.png} \newline\textbf{Danger!} & \raisebox{2mm}{\parbox{13cm}{\textit{No matter your settings, Praat will happily find you formants even in fricative noise or silence, and because it doesn't know how many formants it should be searching for where, it commonly merges F1 and F2 for high back vowels (where they're close together).  In addition, Praat will often have issues finding a single timepoint, so if you're getting an unusual measurement, a timepoint shortly before or after may be more accurate.  Always sanity-check your measurements, make sure you know what you're measuring, and during automated measurement, always run the results by a trained human first!}}}\ \
+\includegraphics[width=0.5in]{danger.png} \newline\textbf{Danger!} & \raisebox{2mm}{\parbox{13cm}{\textit{No matter your settings, Praat will happily find you formants even in fricative noise or silence, and because it doesn't know how many formants it should be searching for where, it commonly merges F1 and F2 for high back vowels (where they're close together).  In addition, Praat will often have issues finding a single timepoint, so if you're getting an unusual measurement, a timepoint shortly before or after may be more accurate.  Always sanity-check your measurements, make sure you know what you're measuring, and during automated measurement, always run the results by a trained human first!}}}
 \end{tabular}
 \vspace{0.5cm}
 
@@ -510,7 +513,7 @@ When scripting, you may want to create a Formant object (select the sound, then 
 
 \vspace{0.5cm}
 \begin{tabular}[c c]{ p{0.7in} p{12cm}}
-\includegraphics[width=0.7in]{hal.png} \newline \textbf{Script Tip!} & \raisebox{5mm}{\parbox{12cm}{\textit{All of the parameters discussed above are manipulable when scripting, so build in some sanity checks to capture the common failure modes.  "If F2 > 3000Hz, increase the number of formants and try again".  This little step can save a lot of pain down the road.}}}\ \
+\includegraphics[width=0.7in]{hal.png} \newline \textbf{Script Tip!} & \raisebox{5mm}{\parbox{12cm}{\textit{All of the parameters discussed above are manipulable when scripting, so build in some sanity checks to capture the common failure modes.  "If F2 > 3000Hz, increase the number of formants and try again".  This little step can save a lot of pain down the road.}}}
 \end{tabular}
 \vspace{0.5cm}
 
@@ -923,7 +926,7 @@ To give Sound A the same pitch pattern as Sound B:
 
 \vspace{0.5cm}
 \begin{tabular}[h]{ p{0.6in} p{12cm}}
-\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{2mm}{\parbox{13cm}{\textit{Praat’s pitch matching feature is only as effective as its pitch tracking feature, which means that both require careful manual review of the results.  Although the two sounds’ pitch tracks will be significantly closer following this step, they will not be identical, and there may be artifacts and odd jumps left over.  If you require the sounds to be exactly matched, match them both to a completely flat pitch generated by formula. (see Section \ref{creatingsounds})}}}\ \
+\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{2mm}{\parbox{13cm}{\textit{Praat’s pitch matching feature is only as effective as its pitch tracking feature, which means that both require careful manual review of the results.  Although the two sounds’ pitch tracks will be significantly closer following this step, they will not be identical, and there may be artifacts and odd jumps left over.  If you require the sounds to be exactly matched, match them both to a completely flat pitch generated by formula. (see Section \ref{creatingsounds})}}}
 \end{tabular}
 \vspace{0.5cm}
 
@@ -966,7 +969,7 @@ You could also set \texttt{durfactor} to 1.5 if you wanted to make the vowel’s
 
 \vspace{0.5cm}
 \begin{tabular}[c c]{ p{0.7in} p{12cm}}
-\includegraphics[width=0.7in]{hal.png} \newline \textbf{Script Tip!} & \raisebox{5mm}{\parbox{12cm}{\textit{Don’t be afraid to modify Pitch and Duration. Because Praat uses PSOLA, modifying duration and pitch is exceptionally clean, and won’t warp the spectral properties of the sound, so long as Praat can find and keep a good pitch track!}}}\ \
+\includegraphics[width=0.7in]{hal.png} \newline \textbf{Script Tip!} & \raisebox{5mm}{\parbox{12cm}{\textit{Don’t be afraid to modify Pitch and Duration. Because Praat uses PSOLA, modifying duration and pitch is exceptionally clean, and won’t warp the spectral properties of the sound, so long as Praat can find and keep a good pitch track!}}}
 \end{tabular}
 \vspace{0.5cm}
 
@@ -998,7 +1001,7 @@ To scale Sound A to the same average intensity as Sound B:
 
 \vspace{0.5cm}
 \begin{tabular}[h]{ p{0.6in} p{12cm}}
-\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{2mm}{\parbox{13cm}{\textit{Again, you must ensure that both stimuli are surrounded by similar amounts of silence to ensure that the resulting words are actually roughly matched in amplitude.  This has forced me to re-make stimuli at great personal cost.  Learn from my pain.}}}\ \
+\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{2mm}{\parbox{13cm}{\textit{Again, you must ensure that both stimuli are surrounded by similar amounts of silence to ensure that the resulting words are actually roughly matched in amplitude.  This has forced me to re-make stimuli at great personal cost.  Learn from my pain.}}}
 \end{tabular}
 \vspace{0.5cm}
 
@@ -1024,7 +1027,7 @@ To concatenate Sound A and Sound B into one file, with Sound A first:
 
 \vspace{0.5cm}
 \begin{tabular}[c c]{ p{0.7in} p{12cm}}
-\includegraphics[width=0.7in]{hal.png} \newline \textbf{Script Tip!} & \raisebox{5mm}{\parbox{12cm}{\textit{This strict 'ordering within objects window' limitation applies to scripting as well.  If, for instance, you've split the onset and coda away from the vowel, and want to re-combine them after vowel manipulation, you'll want to use 'Copy' to create a new version of the coda (which will then necessarily be the newest and last item in Objects), then Select Sound onset (which is earliest in the objects window), Plus Sound modified\_vowel, Plus Sound coda (which you've just created), then Concatenate.  This 'copy to move to bottom of objects window' hack is one of the ugliest, most just-hold-your-nose-and-code scripting tricks I regularly use.}}}\ \
+\includegraphics[width=0.7in]{hal.png} \newline \textbf{Script Tip!} & \raisebox{5mm}{\parbox{12cm}{\textit{This strict 'ordering within objects window' limitation applies to scripting as well.  If, for instance, you've split the onset and coda away from the vowel, and want to re-combine them after vowel manipulation, you'll want to use 'Copy' to create a new version of the coda (which will then necessarily be the newest and last item in Objects), then Select Sound onset (which is earliest in the objects window), Plus Sound modified\_vowel, Plus Sound coda (which you've just created), then Concatenate.  This 'copy to move to bottom of objects window' hack is one of the ugliest, most just-hold-your-nose-and-code scripting tricks I regularly use.}}}
 \end{tabular}
 \vspace{0.5cm}
 
@@ -1162,7 +1165,7 @@ Given some work, though, and some time, this can be an excellent way to modify v
 
 \vspace{0.5cm}
 \begin{tabular}[c c]{ p{0.7in} p{12cm}}
-\includegraphics[width=0.7in]{hal.png} \newline \textbf{Script Tip!} & \raisebox{5mm}{\parbox{12cm}{\textit{Resynthesis works best with downsampled sounds, and introduces some artifacts.  You will almost certaintly want to modify only the bottom 3500 Hz of the vowel, and then re-combine it with the unmodified higher frequencies, so that you change what you need to, but keep the rest pristine. }}}\ \
+\includegraphics[width=0.7in]{hal.png} \newline \textbf{Script Tip!} & \raisebox{5mm}{\parbox{12cm}{\textit{Resynthesis works best with downsampled sounds, and introduces some artifacts.  You will almost certaintly want to modify only the bottom 3500 Hz of the vowel, and then re-combine it with the unmodified higher frequencies, so that you change what you need to, but keep the rest pristine. }}}
 \end{tabular}
 \vspace{0.5cm}
 
@@ -1219,7 +1222,7 @@ For additional information about using Praat pictures, consult Jennifer Smith’
 
 \vspace{0.5cm}
 \begin{tabular}[h]{ p{0.6in} p{12cm}}
-\includegraphics[width=0.5in]{happyretroflex.png} \newline \textbf{Bonus!} & \raisebox{5mm}{\parbox{13cm}{\textit{By creating sounds from formula (see Section \ref{creatingsounds}) and combining them together using waveform addition and subtraction (see Section \ref{sub:formulas}), it’s a breeze to create the sorts of lightweight-yet-accurate waveform graphs needed when teaching and testing students on the fundamentals of acoustics and waveform addition.}}}\ \
+\includegraphics[width=0.5in]{happyretroflex.png} \newline \textbf{Bonus!} & \raisebox{5mm}{\parbox{13cm}{\textit{By creating sounds from formula (see Section \ref{creatingsounds}) and combining them together using waveform addition and subtraction (see Section \ref{sub:formulas}), it’s a breeze to create the sorts of lightweight-yet-accurate waveform graphs needed when teaching and testing students on the fundamentals of acoustics and waveform addition.}}}
 \end{tabular}
 \vspace{0.5cm}
 
@@ -1454,7 +1457,7 @@ The primary way in which this distinction matters is that you’ll open Editor s
 
 \vspace{0.5cm}
 \begin{tabular}[h]{ p{0.6in} p{12cm}}
-\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{2mm}{\parbox{13cm}{\textit{Sometimes you’ll download a script from the internet or from a friend and it just won’t run, or it’ll fail in odd ways.  In those situations, try running it as an Editor script (or as a Praat script, if you’re trying it in the Editor).  This is a simple step that, if it works, can save you hours of frustration and troubleshooting, as there’s often no immediate indication how a given chunk of code was meant to be run.}}}\ \
+\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{2mm}{\parbox{13cm}{\textit{Sometimes you’ll download a script from the internet or from a friend and it just won’t run, or it’ll fail in odd ways.  In those situations, try running it as an Editor script (or as a Praat script, if you’re trying it in the Editor).  This is a simple step that, if it works, can save you hours of frustration and troubleshooting, as there’s often no immediate indication how a given chunk of code was meant to be run.}}}
 \end{tabular}
 \vspace{0.5cm}
 
@@ -1526,7 +1529,7 @@ Once this is completed, you can use a keyboard shortcut to run your script.
 
 \vspace{0.5cm}
 \begin{tabular}[h]{ p{0.6in} p{12cm}}
-\includegraphics[width=0.5in]{happyretroflex.png} \newline \textbf{Bonus!} & \raisebox{5mm}{\parbox{13cm}{\textit{Adding scripts to the Log Script slots is particularly useful for scripts which you might run extraordinarily often, as you can then, with some additional software, set a button on a Multi-button mouse to one of your log script keystrokes.  For instance, if you have a script that will take the current selection, create two TextGrid boundaries, label it “vowel”, then resize the view to the next interval on another tier, you could bind it to a log script, then just make a selection, click a mouse button, rinse and repeat, saving countless hours.}}}\ \
+\includegraphics[width=0.5in]{happyretroflex.png} \newline \textbf{Bonus!} & \raisebox{5mm}{\parbox{13cm}{\textit{Adding scripts to the Log Script slots is particularly useful for scripts which you might run extraordinarily often, as you can then, with some additional software, set a button on a Multi-button mouse to one of your log script keystrokes.  For instance, if you have a script that will take the current selection, create two TextGrid boundaries, label it “vowel”, then resize the view to the next interval on another tier, you could bind it to a log script, then just make a selection, click a mouse button, rinse and repeat, saving countless hours.}}}
 \end{tabular}
 \vspace{0.5cm}
 
@@ -1640,7 +1643,7 @@ Praat would always look for data in a folder called “test data”, in the same
 
 \vspace{0.5cm}
 \begin{tabular}[h]{ p{0.6in} p{12cm}}
-\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{3mm}{\parbox{13cm}{\textit{Incorrectly formatted absolute path names are the most common issue which prevents you from running scripts you download from the internet.  If your script won’t run, check the file paths throughout the script and update them to match your operating system.}}}\ \
+\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{3mm}{\parbox{13cm}{\textit{Incorrectly formatted absolute path names are the most common issue which prevents you from running scripts you download from the internet.  If your script won’t run, check the file paths throughout the script and update them to match your operating system.}}}
 \end{tabular}
 \vspace{0.5cm}
 
@@ -1922,7 +1925,7 @@ endif
 
 \vspace{0.5cm}
 \begin{tabular}[h]{ p{0.6in} p{12cm}}
-\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{3mm}{\parbox{13cm}{\textit{For much of its life, Praat script used \texttt{<>} to mean ``not equal to’’ (rather than the usual \texttt{!=} or \texttt{/=} or \texttt{=/=}). Although recent versions (mercifully) allow the far more common \texttt{!=} to mean the same thing, be aware that older scripts will still include this odd \texttt{<>} notation.}}}\ \
+\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{3mm}{\parbox{13cm}{\textit{For much of its life, Praat script used \texttt{<>} to mean ``not equal to’’ (rather than the usual \texttt{!=} or \texttt{/=} or \texttt{=/=}). Although recent versions (mercifully) allow the far more common \texttt{!=} to mean the same thing, be aware that older scripts will still include this odd \texttt{<>} notation.}}}
 \end{tabular}
 \vspace{0.5cm}
 
@@ -1944,7 +1947,7 @@ Here, a while loop is ideal, as it just keeps going until the criterion is reach
 
 \vspace{0.5cm}
 \begin{tabular}[h]{ p{0.6in} p{12cm}}
-\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{3mm}{\parbox{13cm}{\textit{While loops are great, but Praat (especially on OS X) acts funny if it has to do more than a certain number of iterations, as they can quickly fill up your memory. Especially if your while loop deals with something complex which might not always happen, if Praat starts crashing on certain tokens, your while loops are a good place to start looking.}}}\ \
+\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{3mm}{\parbox{13cm}{\textit{While loops are great, but Praat (especially on OS X) acts funny if it has to do more than a certain number of iterations, as they can quickly fill up your memory. Especially if your while loop deals with something complex which might not always happen, if Praat starts crashing on certain tokens, your while loops are a good place to start looking.}}}
 \end{tabular}
 \vspace{0.5cm}
 
@@ -2029,7 +2032,7 @@ label endscript
 
 \vspace{0.5cm}
 \begin{tabular}[h]{ p{0.6in} p{12cm}}
-\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{3mm}{\parbox{13cm}{\textit{For the most part, you shouldn't use gotos except to exit loops. For most other uses, an if statement or while loop will accomplish the same thing, but in a more easy-to-debug way.  Much like sticks of dynamite, gotos are very, very seldom the right tool for the job, and they're just as likely to blow up in your face as they are to fix your problem.  Think long and hard before you light that fuse.}}}\ \
+\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{3mm}{\parbox{13cm}{\textit{For the most part, you shouldn't use gotos except to exit loops. For most other uses, an if statement or while loop will accomplish the same thing, but in a more easy-to-debug way.  Much like sticks of dynamite, gotos are very, very seldom the right tool for the job, and they're just as likely to blow up in your face as they are to fix your problem.  Think long and hard before you light that fuse.}}}
 \end{tabular}
 \vspace{0.5cm}
 
@@ -2087,7 +2090,7 @@ Editor scripting is great, especially as you’re just starting off, but if you�
 
 \vspace{0.5cm}
 \begin{tabular}[h]{ p{0.6in} p{12cm}}
-\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{3mm}{\parbox{13cm}{\textit{When you have purged all user-interface-generating elements from your script, at least on macOS, once you start your script running, Praat will appear to "crash", with the user interface becoming unresponsive, even to the extent that the file chooser dialog can't be moved.  This is simiply a consequence of your script's efficiency coupled with Praat's coding.  You'll see that data and files are saving happily to the designated directories, and checking Activity Monitor will reveal heavy CPU usage, but Praat will appear dead-to-the-world.  When the script finishes (or errors out), Praat will return to life.}}}\ \
+\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{3mm}{\parbox{13cm}{\textit{When you have purged all user-interface-generating elements from your script, at least on macOS, once you start your script running, Praat will appear to "crash", with the user interface becoming unresponsive, even to the extent that the file chooser dialog can't be moved.  This is simiply a consequence of your script's efficiency coupled with Praat's coding.  You'll see that data and files are saving happily to the designated directories, and checking Activity Monitor will reveal heavy CPU usage, but Praat will appear dead-to-the-world.  When the script finishes (or errors out), Praat will return to life.}}}
 \end{tabular}
 \vspace{0.5cm}
 
@@ -2183,7 +2186,7 @@ Sometimes, you will sit down and realize you need to do something ambitious, wei
 
 \vspace{0.5cm}
 \begin{tabular}[h]{ p{0.6in} p{12cm}}
-\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{3mm}{\parbox{13cm}{\textit{The techniques described here are fairly esoteric and require some deeper understanding of the nuances of Praat.  They're here not so much because you'll likely need them in your phonetic career, but so that they're available, findable, and can save some work  for those few people who actually do.  Read on if you're curious, but if you're just getting started, feel free to stop here!}}}\ \
+\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{3mm}{\parbox{13cm}{\textit{The techniques described here are fairly esoteric and require some deeper understanding of the nuances of Praat.  They're here not so much because you'll likely need them in your phonetic career, but so that they're available, findable, and can save some work  for those few people who actually do.  Read on if you're curious, but if you're just getting started, feel free to stop here!}}}
 \end{tabular}
 \vspace{0.5cm}
 
@@ -2281,7 +2284,7 @@ Of course, this same technique of generating, analyzing, and graphing 'sounds' w
 
 \vspace{0.5cm}
 \begin{tabular}[h]{ p{0.6in} p{12cm}}
-\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{3mm}{\parbox{13cm}{\textit{DC signals like these (which don't move back and forth around 0) can be dangerous to some kinds of speakers and headphones (as a constant level of current is pushed through the wiring without any break or reversal for the wiring to cool down).  Although a single playback of a short DC file is unlikely to hurt anything (although it won't be audible), hitting "Play" on an hour-long, high-amplitude DC track could damage your speakers or headphones in some scenarios.  With great (DC) power comes great responsibility.}}}\ \
+\includegraphics[width=0.5in]{danger.png} \newline \textbf{Danger!} & \raisebox{3mm}{\parbox{13cm}{\textit{DC signals like these (which don't move back and forth around 0) can be dangerous to some kinds of speakers and headphones (as a constant level of current is pushed through the wiring without any break or reversal for the wiring to cool down).  Although a single playback of a short DC file is unlikely to hurt anything (although it won't be audible), hitting "Play" on an hour-long, high-amplitude DC track could damage your speakers or headphones in some scenarios.  With great (DC) power comes great responsibility.}}}
 \end{tabular}
 \vspace{0.5cm}
 
