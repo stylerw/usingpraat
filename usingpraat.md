@@ -5,7 +5,7 @@
 
 \begin{center}
 \vspace{0.5in}
-\textbf{\small Document Version}: 1.9.1.1
+\textbf{\small Document Version}: 1.9.2
 
 \textbf{Last Update}: \today
 
@@ -37,6 +37,8 @@ Using Praat for Linguistic Research by Will Styler is licensed under a Creative 
 
 
 # Version History
+
+* 1.9.2 - November 19th, 2023 - Added discussion of concatenating long-sound files.
 
 * 1.9.1.1 - October 26th, 2023 - Fixed some errant markup (thanks to Kevin McGowan for the report!) and revised the build script to be more linux-friendly
 
@@ -1032,6 +1034,22 @@ To concatenate Sound A and Sound B into one file, with Sound A first:
 \vspace{0.5cm}
 
 Note that you also have the option to use *Objects -> Combine -> Concatenate recoverably*, which works identically to *Concatenate*, but also creates a 'TextGrid chain' annotation showing the extent of each file within the chain file, which can be useful to later split the files back up.  *Objects -> Combine -> Concatenate with overlap...* performs the concatenation, specifying that the last N seconds of the first file should overlap the first N seconds of the second (which can be useful if, for instance, both words have 50ms of silence, but you want a 25ms inter-stimulus interval).  But if you're attempting to combine the sounds, you should instead refer to...
+
+### Concatenating 'LongSound' files
+
+When you read in a file as a LongSound, you lose access to the above method. Instead, to concatenate LongSounds, you'll effectively 'save them together' and read them back in after. To do this...
+
+1. Load both Sound A and Sound B into the objects window of Praat **such that Sound A is imported first**
+	* If the sounds are already loaded such that B is first, use *Copy...* to make a new Sound B lower in the objects window
+2. Ensure that the files contain the desired amount of empty space to either side of each word (as the entire files, silence and all, will be stitched together).
+3. Select Sound A
+4. Select Sound B
+5. *Objects -> Save -> Save as WAV file*
+6. Enter the desired filename and location for the resulting, concatenated file
+7. Save
+8. Read the concatenated sound file back in from the location you saved above.
+
+There is a 'Concatenate' button when you've selected two LongSounds, but it just tells you to do the above.
 
 ## Combining Sounds
 
